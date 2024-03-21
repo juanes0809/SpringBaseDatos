@@ -21,4 +21,20 @@ public class Detalle {
         this.costoTotal = costoTotal;
         this.cantidadProductos = cantidadProductos;
     }
+
+    public Integer getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(Integer costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+
+    public Integer getCantidadProductos() {
+        return cantidadProductos;
+    }
+
+    public void setCantidadProductos(Integer cantidadProductos) {
+        this.cantidadProductos = cantidadProductos;
+    }
 }

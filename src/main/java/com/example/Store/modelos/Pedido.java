@@ -20,4 +20,12 @@ public class Pedido {
         this.id = id;
         fechaYHora = fechaYHora;
     }
+
+    public LocalDateTime getFechaYHora() {
+        return fechaYHora;
+    }
+
+    public void setFechaYHora(LocalDateTime fechaYHora) {
+        this.fechaYHora = fechaYHora;
+    }
 }
