@@ -13,13 +13,13 @@ public class Marca {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nombreMarca",nullable = false, length = 50)
-    private String nombreMarca;
+    private String nombreMarca; // no vacio obligario y maximo 50
     @Column(name = "nit",nullable = false, length = 20)
-    private String nit;
+    private String nit; //  solo numeros y maximo 10
     @Column(name = "pais",nullable = true)
-    private LocalDate anoCreacion;
+    private LocalDate anoCreacion;// obligario
     @Column(name = "sedePrincipal",nullable = true, length = 30)
-    private String sedePrincipal;
+    private String sedePrincipal; // no se valida
 
     public Marca() {
     }

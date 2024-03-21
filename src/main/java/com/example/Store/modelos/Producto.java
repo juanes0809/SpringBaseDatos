@@ -9,19 +9,19 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "nombreProducto",nullable = false, length = 60)
-    private String nombreProducto;
+    private String nombreProducto; // no vacio, solo letras y espacios- longitud 60
     @Column(name = "referencia",nullable = false, length = 50)
-    private String referencia;
+    private String referencia; // no vacio longitud 14
     @Column(name = "talla",nullable = false, length = 5)
-    private String talla;
+    private String talla; // maximo 3 caracteres
     @Column(name = "cantidadBodega",nullable = false)
-    private Integer cantidadBodega;
+    private Integer cantidadBodega; // solo numeros positivos
     @Column(name = "precioUnitario",nullable = false)
-    private Integer precioUnitario;
+    private Integer precioUnitario; // solo numeros positivos
     @Column(name = "descripcion",nullable = true, length = 100)
-    private String descripcion;
+    private String descripcion; // longitud maxima 100
     @Column(name = "fotografia",nullable = true, length = 255)
-    private String fotografia;
+    private String fotografia; // no vacio, maximo 255
 
     public Producto() {
     }
