@@ -16,7 +16,7 @@ public class Marca {
     private String nombreMarca; // no vacio obligario y maximo 50
     @Column(name = "nit",nullable = false, length = 20)
     private String nit; //  solo numeros y maximo 10
-    @Column(name = "pais",nullable = true)
+    @Column(name = "anoCreacion",nullable = true)
     private LocalDate anoCreacion;// obligario
     @Column(name = "sedePrincipal",nullable = true, length = 30)
     private String sedePrincipal; // no se valida
