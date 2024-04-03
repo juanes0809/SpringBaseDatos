@@ -40,6 +40,13 @@ public class ValidacionProducto {
         if (cantidadBodega<0){
             throw new Exception("la cantidad en bodega no puede ser un numero negativo");
         }
+        String numeroString = String.valueOf(cantidadBodega); // Convertir el Integer a una cadena
+
+        for (char c : numeroString.toCharArray()) {
+            if (!Character.isDigit(c)) { // Verificar si el carácter no es un dígito
+                throw new Exception("El número contiene caracteres no numéricos");
+            }
+        }
         return true;
     }
     public boolean validPrecioUnitario(Integer precioUnitario)throws Exception{
@@ -48,6 +55,13 @@ public class ValidacionProducto {
         }
         if (precioUnitario==0){
             throw new Exception("El precio unitario no puede ser cero");
+        }
+        String numeroString = String.valueOf(precioUnitario); // Convertir el Integer a una cadena
+
+        for (char c : numeroString.toCharArray()) {
+            if (!Character.isDigit(c)) { // Verificar si el carácter no es un dígito
+                throw new Exception("El número contiene caracteres no numéricos");
+            }
         }
 
         return true;
