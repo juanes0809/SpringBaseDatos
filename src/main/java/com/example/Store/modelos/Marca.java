@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_marca;
     @Column(name = "nombreMarca",nullable = false, length = 50)
     private String nombreMarca; // no vacio obligario y maximo 50
     @Column(name = "nit",nullable = false, length = 20)
@@ -25,7 +25,7 @@ public class Marca {
     }
 
     public Marca(Integer id, String nombreMarca, String nit, LocalDate anoCreacion, String sedePrincipal) {
-        this.id = id;
+        this.id_marca = id;
         this.nombreMarca = nombreMarca;
         this.nit = nit;
         this.anoCreacion = anoCreacion;
