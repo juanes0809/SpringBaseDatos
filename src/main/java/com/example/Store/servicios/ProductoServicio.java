@@ -16,15 +16,54 @@ public class ProductoServicio {
     @Autowired
     ProductoRepositorio productoRepositorio;
 
-    public Producto guardarProducto(){
-        return null;
-    }
-    public Producto  consultarProductoId(){
-        return null;
+    public Producto guardarProducto(Producto datosProducto) throws Exception{
+        try{
+            if (!validacionProducto.validarNombre(datosProducto.getNombreProducto())){
+                throw new Exception("Nombre invalido");
+            }
+            if (!validacionProducto.validarDescripcion(datosProducto.getDescripcion())){
+                throw new Exception("Descripcion invalida");
+            }
+            if (!validacionProducto.validarTalla(datosProducto.getTalla())){
+                throw new Exception("Talla invalida");
+            }
+            if (!validacionProducto.validarReferencia(datosProducto.getReferencia())){
+                throw new Exception("Referencia invalida");
+            }
+            if (!validacionProducto.validarFotografia(datosProducto.getFotografia())){
+                throw new Exception("Fotografia invalida");
+            }
+            if (!validacionProducto.validarCantidadBodega(datosProducto.getCantidadBodega())){
+                throw new Exception("Cantidad bodega invalida");
+            }
+            if (!validacionProducto.validarPrecioUnitario(datosProducto.getPrecioUnitario())){
+                throw new Exception("Precio invalido");
+            }
+
+            return productoRepositorio.save(datosProducto);
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
-    public List<Producto> buscarTodosProducto(){
-        return null;
+    public Producto  consultarProductoId(Integer idProducto)throws Exception{
+        try {
+            if (productoRepositorio.findById(idProducto).isPresent()){
+                return productoRepositorio.findById(idProducto).get();
+            }else {
+                throw new Exception("Producto no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
+
+    public List<Producto> buscarTodosProducto() throws Exception{
+        try {
+            return productoRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
     public Producto  editarProducto(){
         return null;

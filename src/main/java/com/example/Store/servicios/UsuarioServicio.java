@@ -23,15 +23,47 @@ public class UsuarioServicio {
     // metodo para guardar un usuario, metodo para consultar un usuario en bd por id , metodo para consultar todos los usuarios,
     // metodo para editar un usuario, metodo para eliminar un usuario.
 
-    public Usuario guardarUsuario(){
-        return null;
+    public Usuario guardarUsuario(Usuario datosUsuario) throws Exception{
+        try{
+            if (!validacionUsuario.validarNombres(datosUsuario.getNombres())){
+                throw new Exception("Nombres invalidos");
+            }
+            if (!validacionUsuario.validarCedula(datosUsuario.getCedula())){
+                throw new Exception("Cedula invalida");
+            }
+            if (!validacionUsuario.validarCorreo(datosUsuario.getCorreo())){
+                throw new Exception("Correo invalido");
+            }
+            if (!validacionUsuario.validarSexo(datosUsuario.getSexo())){
+                throw new Exception("Sexo invalido");
+            }
+            if (!validacionUsuario.validarCodigoPostal(datosUsuario.getCodigoPostal())){
+                throw new Exception("Codigo postal invalido");
+            }
+            return usuarioRepositorio.save(datosUsuario);
+
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
-    public Usuario consultarUsuarioId(){
-        return null;
+    public Usuario consultarUsuarioId(Integer idUsuario) throws Exception{
+        try {
+            if (usuarioRepositorio.findById(idUsuario).isPresent()){
+                return usuarioRepositorio.findById(idUsuario).get();
+            }else {
+                throw new Exception("Usuario no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
-    public List<Usuario> buscarTodosUsuarios(){
-        return null;
+    public List<Usuario> buscarTodosUsuarios() throws Exception{
+        try {
+            return usuarioRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
     public Usuario editarUsuario(){
         return null;

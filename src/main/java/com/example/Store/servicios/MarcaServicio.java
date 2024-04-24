@@ -16,15 +16,42 @@ public class MarcaServicio {
     @Autowired
     MarcaRepositorio marcaRepositorio;
 
-    public Marca guardarMarca(){
-        return null;
-    }
-    public Marca consultarMarcaId(){
-        return null;
+    public Marca guardarMarca(Marca datosMarca) throws Exception{
+        try {
+            if (validacionMarca.validarNombreMarca(datosMarca.getNombreMarca())){
+                throw new Exception("Nombre invalido");
+            }
+            if (validacionMarca.validarAno(datosMarca.getAnoCreacion())){
+                throw new Exception("Año invalido");
+            }
+            if (validacionMarca.validarNit(datosMarca.getNit())){
+                throw new Exception("Nit invalido");
+            }
+
+            return marcaRepositorio.save(datosMarca);
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
-    public List<Marca> buscarTodosMarca(){
-        return null;
+    public Marca consultarMarcaId(Integer idMarca)throws Exception{
+        try {
+            if (marcaRepositorio.findById(idMarca).isPresent()){
+                return marcaRepositorio.findById(idMarca).get();
+            }else {
+                throw new Exception("Marca no encontrada");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
+
+    public List<Marca> buscarTodosMarca() throws Exception{
+        try {
+            return marcaRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
     public Marca editarMarca(){
         return null;

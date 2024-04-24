@@ -1,5 +1,9 @@
 package com.example.Store.helpers;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ValidacionUsuario {
     public boolean validarNombres(String nombres)throws Exception{
         if (nombres.length()==0){
@@ -23,7 +27,7 @@ public class ValidacionUsuario {
             throw new Exception("la longitud de la cedula no puede ser mayor a 12");
         }
         String regex = "^[0-9]+$";
-        if (!ValidarPatron.evaluarPatron(regex,cedula)){
+        if (!ValidarPatron.evaluarPatron(cedula,regex)){
             throw new Exception("El nit ingresado solo puede tener numeros");
         }
         return true;
@@ -51,7 +55,7 @@ public class ValidacionUsuario {
         }
         return true;
     }
-    public boolean codigoPostal(String codigoPostal)throws Exception{
+    public boolean validarCodigoPostal(String codigoPostal)throws Exception{
         if (codigoPostal.length()==0){
             throw new Exception("la longitud del codigo postal no puede ser cero");
         }

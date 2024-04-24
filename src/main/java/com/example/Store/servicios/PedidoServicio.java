@@ -16,15 +16,35 @@ public class PedidoServicio {
     @Autowired
     PedidoRepositorio pedidoRepositorio;
 
-    public Pedido guardarPedido(){
-        return null;
-    }
-    public Pedido consultarPedidoId(){
-        return null;
+    public Pedido guardarPedido(Pedido datosPedido) throws Exception{
+        try {
+            if (!validacionPedido.validarFechaYHora(datosPedido.getFechaYHora().toLocalDate())){
+                throw new Exception("Fecha y hora invalido");
+            }
+            return pedidoRepositorio.save(datosPedido);
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
 
-    public List<Pedido> buscarTodosPedido(){
-        return null;
+    public Pedido consultarPedidoId(Integer idPedido)throws Exception{
+        try {
+            if (pedidoRepositorio.findById(idPedido).isPresent()){
+                return pedidoRepositorio.findById(idPedido).get();
+            }else {
+                throw new Exception("Pedido no encontrado");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
+
+    public List<Pedido> buscarTodosPedido() throws Exception{
+        try {
+            return pedidoRepositorio.findAll();
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
     }
     public Pedido editarPedido(){
         return null;
