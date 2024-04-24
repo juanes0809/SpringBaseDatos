@@ -1,6 +1,6 @@
 Usuario modelo:
 {
-"nombres":"Patricia ",
+"nombres":"patricia",
 "apellidos": "Fernandez",
 "cedula":"123456789",
 "correo":"patricia@ecomoda.com",
