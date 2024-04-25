@@ -12,7 +12,6 @@ public class ValidacionTipoPrenda {
             throw new Exception("el tipo de prenda no puede tener mas de 80 caracteres");
         }
         String regex="^[a-zA-Z ]+$";
-        // evaluo si el nombre coincide con la expresion
         if (!ValidarPatron.evaluarPatron(regex,nombre)){
             throw new Exception("revisa el el tipo de prenda ingresado ya que solo puede tener letras y espacios");
         }

@@ -69,5 +69,4 @@ public class ValidacionUsuario {
         return true;
     }
 
-
 }

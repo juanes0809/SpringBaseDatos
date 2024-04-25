@@ -39,7 +39,6 @@ public class ProductoServicio {
             if (!validacionProducto.validarPrecioUnitario(datosProducto.getPrecioUnitario())){
                 throw new Exception("Precio invalido");
             }
-
             return productoRepositorio.save(datosProducto);
         }catch (Exception error){
             throw new Exception(error.getMessage());

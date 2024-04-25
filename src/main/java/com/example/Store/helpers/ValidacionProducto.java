@@ -12,7 +12,6 @@ public class ValidacionProducto {
             throw new Exception("El nombre no puede tener mas de 60 caracteres");
         }
         String regex="^[a-zA-Z ]+$";
-        // evaluo si el nombre coincide con la expresion
         if (!ValidarPatron.evaluarPatron(regex, nombre)){
             throw new Exception("revisa el nombre ingresado ya que solo puede tener letras y espacios");
         }

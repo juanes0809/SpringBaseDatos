@@ -46,7 +46,7 @@ public class UsuarioServicio {
             throw new Exception(error.getMessage());
         }
     }
-    public Usuario consultarUsuarioId(Integer idUsuario) throws Exception{
+    public Usuario buscarUsuarioId(Integer idUsuario) throws Exception{
         try {
             if (usuarioRepositorio.findById(idUsuario).isPresent()){
                 return usuarioRepositorio.findById(idUsuario).get();

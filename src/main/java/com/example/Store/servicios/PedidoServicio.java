@@ -26,7 +26,6 @@ public class PedidoServicio {
             throw new Exception(error.getMessage());
         }
     }
-
     public Pedido consultarPedidoId(Integer idPedido)throws Exception{
         try {
             if (pedidoRepositorio.findById(idPedido).isPresent()){
@@ -38,7 +37,6 @@ public class PedidoServicio {
             throw new Exception(error.getMessage());
         }
     }
-
     public List<Pedido> buscarTodosPedido() throws Exception{
         try {
             return pedidoRepositorio.findAll();

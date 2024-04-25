@@ -19,7 +19,6 @@ public class ValidacionMarca {
 
         return true;
     }
-
     public boolean validarNit(String nit)throws Exception{
         String regex = "^[0-9]+$";
         if (!ValidarPatron.evaluarPatron(regex,nit)){

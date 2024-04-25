@@ -27,7 +27,7 @@ public class TipoPrendaServicio {
         }
     }
 
-    public TipoPrenda consultarTipoPrendaId(Integer idTipoPrenda)throws Exception{
+    public TipoPrenda buscarTipoPrendaId(Integer idTipoPrenda)throws Exception{
         try {
             if (tipoPrendaRepositorio.findById(idTipoPrenda).isPresent()){
                 return tipoPrendaRepositorio.findById(idTipoPrenda).get();

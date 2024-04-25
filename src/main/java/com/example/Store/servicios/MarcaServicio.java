@@ -33,7 +33,6 @@ public class MarcaServicio {
             throw new Exception(error.getMessage());
         }
     }
-
     public Marca consultarMarcaId(Integer idMarca)throws Exception{
         try {
             if (marcaRepositorio.findById(idMarca).isPresent()){
@@ -45,7 +44,6 @@ public class MarcaServicio {
             throw new Exception(error.getMessage());
         }
     }
-
     public List<Marca> buscarTodosMarca() throws Exception{
         try {
             return marcaRepositorio.findAll();

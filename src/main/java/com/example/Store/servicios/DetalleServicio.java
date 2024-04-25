@@ -29,7 +29,6 @@ public class DetalleServicio {
             throw new Exception(error.getMessage());
         }
     }
-
     public Detalle consultarDetalleId(Integer idDetalle)throws Exception{
         try {
             if (detalleRepositorio.findById(idDetalle).isPresent()){
@@ -41,7 +40,6 @@ public class DetalleServicio {
             throw new Exception(error.getMessage());
         }
     }
-
     public List<Detalle> buscarTodosDetalle() throws Exception{
         try {
             return detalleRepositorio.findAll();

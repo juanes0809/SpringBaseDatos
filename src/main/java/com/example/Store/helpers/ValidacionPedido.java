@@ -17,8 +17,8 @@ public class ValidacionPedido {
         String fechaString = fechaYHora.toString(); // Convertir LocalDate a String
 
         try {
-            LocalDate parsedDate = LocalDate.parse(fechaString, formatter);
-            // Si la fecha analizada es igual a la fecha original, entonces está en el formato deseado
+            LocalDate parsedDate = LocalDate.parse(fechaString, formatter);// Si la fecha analizada es igual a la fecha original, entonces está en el formato deseado
+
             if (parsedDate.equals(fechaYHora)) {
                 return true;
             } else {

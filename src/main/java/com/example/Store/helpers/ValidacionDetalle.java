@@ -34,8 +34,6 @@ public class ValidacionDetalle {
                 throw new Exception("El número contiene caracteres no numéricos");
             }
         }
-
         return true;
     }
-
 }
